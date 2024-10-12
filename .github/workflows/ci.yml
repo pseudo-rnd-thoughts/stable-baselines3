@@ -21,6 +21,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11"]
+        gymnasium-version: ["0.29.1", "1.0.0"]
 
     steps:
       - uses: actions/checkout@v3
@@ -37,7 +38,7 @@ jobs:
           pip install .[extra,tests,docs]
           # Use headless version
           pip install opencv-python-headless
-          pip install git+https://github.com/farama-Foundation/gymnasium
+          pip install gymnasium==${{ matrix.python-version }}
       - name: Lint with ruff
         run: |
           make lint

@@ -38,7 +38,7 @@ jobs:
           pip install .[extra,tests,docs]
           # Use headless version
           pip install opencv-python-headless
-          pip install gymnasium==${{ matrix.python-version }}
+          pip install gymnasium==${{ matrix.gymnasium-version }}
       - name: Lint with ruff
         run: |
           make lint
